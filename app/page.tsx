@@ -82,7 +82,7 @@ export default function Home() {
           <div className="hero-actions"><a className="button button-primary" href="#warianty">Wybierz gramaturę <ArrowRight size={18} /></a><a className="button button-quiet" href="mailto:bocian.gold@gmail.com?subject=Zapytanie%20o%20siano"><Mail size={17} /> Zapytaj o dostępność</a></div>
           <div className="hero-proof"><div className="proof-avatars"><span>🐇</span><span>🐹</span><span>🐭</span></div><div><strong>Dla codziennego podawania</strong><small>Naturalna zmienność każdego pokosu</small></div></div>
         </div>
-        <div className="hero-art" aria-label="Etykieta Bocian Gold – Złota Łąka"><div className="art-glow" /><div className="art-sticker"><Sparkles size={15} /> Ręcznie pakowane</div><img src="etykieta-tylna.png" alt="Etykieta siana Bocian Gold Złota Łąka" /><div className="art-caption"><span>01</span><span>naturalny skład</span><span>kujawska łąka</span></div></div>
+        <div className="hero-art" aria-label="Kujawska łąka z tradycyjną szopą w murze pruskim"><div className="art-glow" /><div className="art-sticker"><Sparkles size={15} /> Ręcznie pakowane</div><div className="hero-scene-frame"><img className="hero-scene-image" src="hero-mur-pruski.png" alt="Kujawska łąka z tradycyjną szopą w murze pruskim i królikiem" fetchPriority="high" /><span className="scene-note">Kujawska łąka · mur pruski</span></div><div className="art-caption"><span>01</span><span>naturalny skład</span><span>kujawska łąka</span></div></div>
       </section>
 
       <section className="benefits" aria-label="Najważniejsze cechy">
