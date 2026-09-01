@@ -159,3 +159,54 @@ h2 em { color: var(--gold); font-style: normal; }
 .footer-meta a { color: var(--green); font-weight: 700; }
 @media (max-width: 900px) { .hero { gap: 45px; grid-template-columns: 1fr; padding-bottom: 75px; padding-top: 76px; } .hero-copy { max-width: 650px; } .hero-art { max-width: 360px; } .variant-grid { grid-template-columns: repeat(3, 1fr); } .story { gap: 50px; } .photo-card-1 { grid-column: span 6; } .photo-card-2, .photo-card-3, .photo-card-4, .photo-card-5, .photo-card-6, .photo-card-7, .photo-card-8, .photo-card-9 { grid-column: span 3; } }
 @media (max-width: 700px) { .topbar { height: 70px; padding: 0 18px; } .brand-lockup img { height: 46px; width: 130px; } .nav-links { display: none; } .nav-cta { font-size: 12px; } h1 { font-size: clamp(46px, 14vw, 70px); } .hero { min-height: auto; padding-left: 21px; padding-right: 21px; } .hero-art { margin-top: 13px; width: min(100%, 340px); } .benefits { grid-template-columns: 1fr; padding: 9px 21px; } .benefits > div, .benefits > div:first-child, .benefits > div:last-child { border-bottom: 1px solid rgba(255,255,255,.15); border-right: 0; padding: 13px 0; } .benefits > div:last-child { border-bottom: 0; } .section { padding-left: 21px; padding-right: 21px; } .section-heading, .section-heading.compact { align-items: start; flex-direction: column; gap: 22px; } .section-heading { margin-bottom: 31px; } .category-switcher { grid-template-columns: 1fr; } .category-tab strong { font-size: 18px; } .category-summary { align-items: start; flex-direction: column; gap: 13px; margin-bottom: 22px; } .variant-grid { grid-template-columns: repeat(2, 1fr); } .variant-card { min-height: 276px; padding: 0; } .variant-card.active { padding: 0; } .variant-photo { height: 126px; padding: 8px 10px 0; } .variant-content { padding: 12px 13px 13px; } .variant-badge { font-size: 8px; left: 13px; top: 7px; } .variant-card.featured .variant-weight { margin-top: 14px; } .variant-weight { font-size: 24px; } .variant-price { font-size: 14px; margin-top: 12px; } .variant-note, .variant-description { font-size: 10px; } .selection-bar { align-items: stretch; flex-direction: column; gap: 17px; } .selection-bar .button { width: 100%; } .photo-grid { gap: 12px; grid-template-columns: repeat(2, 1fr); } .photo-card-1, .photo-card-2, .photo-card-3, .photo-card-4, .photo-card-5, .photo-card-6, .photo-card-7, .photo-card-8, .photo-card-9 { grid-column: span 1; grid-row: auto; } .photo-card-1 { grid-column: span 2; } .photo-frame, .photo-card-1 .photo-frame { min-height: 225px; padding: 10px; } .photo-card-1 .photo-frame { min-height: 370px; } .photo-frame img, .photo-card-1 .photo-frame img { max-height: 350px; } .photo-card figcaption { font-size: 9px; } .story, .faq { display: flex; flex-direction: column; } .story-image { max-width: 310px; min-height: 310px; } .story-copy { max-width: none; } .process-grid { grid-template-columns: 1fr; } .process-grid > div, .process-grid > div + div { border-bottom: 1px solid var(--line); border-right: 0; min-height: 0; padding: 24px 0; } .process-grid > div:last-child { border-bottom: 0; } .step-number { margin-bottom: 21px; } .contact-band { align-items: start; flex-direction: column; padding-bottom: 56px; padding-top: 56px; } .contact-band .button-light { width: 100%; } .footer { align-items: start; flex-direction: column; padding-bottom: 35px; padding-top: 35px; } .footer-brand { align-items: start; flex-direction: column; gap: 9px; } }
+
+/* Krajeński, wiejski kierunek wizualny: jasna karta strony na oliwkowym tle,
+   fotografia łąki jako pełny hero i prostsza typografia inspirowana wzorem. */
+:root { --background: #f6f2e7; --foreground: #293d2b; --cream: #f6f2e7; --paper: #fffdf8; --green: #293d2b; --green-soft: #53633e; --gold: #b48a2e; --gold-soft: #d5b55d; --red: #9a3c2e; --sky: #dbe9d5; --line: rgba(41,61,43,.16); --muted: #65705f; }
+body { background: #8f9558; }
+.site-shell { background: var(--cream); box-shadow: 0 20px 70px rgba(33,43,26,.2); margin: 0 auto; max-width: 1180px; }
+.topbar { background: rgba(246,242,231,.96); height: 78px; padding-left: clamp(20px,4vw,58px); padding-right: clamp(20px,4vw,58px); position: relative; }
+.brand-lockup img { height: 56px; width: 160px; }
+.nav-links { gap: clamp(14px,2.4vw,32px); margin-right: clamp(16px,3vw,40px); }
+.nav-links a { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.nav-cta { background: var(--green); border: 0; border-radius: 3px; color: var(--paper); letter-spacing: .1em; padding: 11px 15px; text-transform: uppercase; }
+.hero { background: #dcead5; display: block; margin: 0; max-width: none; min-height: 560px; overflow: hidden; padding: 0; position: relative; }
+.hero-copy { align-items: flex-start; background: linear-gradient(90deg, rgba(246,242,231,.98) 0%, rgba(246,242,231,.94) 56%, rgba(246,242,231,0) 100%); display: flex; flex-direction: column; justify-content: center; max-width: 620px; min-height: 560px; padding: clamp(50px,8vw,104px) clamp(24px,6vw,82px); position: relative; z-index: 4; }
+.hero h1 { color: var(--green); font-family: var(--font-body); font-size: clamp(38px,5vw,65px); font-weight: 900; letter-spacing: .015em; line-height: .99; max-width: 520px; text-transform: uppercase; }
+.hero h1::after { display: none; }
+.hero-lede { font-size: 14px; line-height: 1.6; margin-top: 22px; max-width: 410px; }
+.hero-actions { gap: 9px; margin-top: 27px; }
+.hero-actions .button { border-radius: 3px; font-size: 10px; letter-spacing: .08em; min-height: 38px; padding: 0 14px; text-transform: uppercase; }
+.hero-actions .button-primary { box-shadow: none; }
+.hero-art { height: 100%; inset: 0; max-width: none; position: absolute; transform: none; width: 100%; z-index: 1; }
+.hero-art::before, .art-glow { display: none; }
+.hero-scene-frame { border: 0; box-shadow: none; inset: 0; overflow: hidden; position: absolute; transform: none; }
+.hero-scene-image { aspect-ratio: auto; height: 100%; object-fit: cover; width: 100%; }
+.art-sticker { border: 3px solid var(--cream); font-size: 10px; left: auto; padding: 9px 12px; right: 24px; top: 24px; transform: rotate(3deg); }
+.scene-note { bottom: 18px; font-size: 9px; left: auto; letter-spacing: .12em; padding: 8px 10px; right: 20px; }
+.art-caption { bottom: 16px; color: rgba(255,253,248,.86); gap: 14px; margin: 0; padding: 0; position: absolute; right: 20px; text-shadow: 0 1px 4px rgba(0,0,0,.3); }
+.art-caption span:first-child { color: var(--gold-soft); }
+.benefits { background: var(--paper); color: var(--green); max-width: none; padding: 24px clamp(24px,5vw,70px); }
+.benefits > div { border-color: var(--line); }
+.benefits small { color: var(--muted); }
+.benefit-icon { background: var(--sky); }
+.section { max-width: none; }
+.variants-section { background: #f1eee2; }
+.category-tab, .variant-card { border-radius: 7px; }
+.category-tab.active, .variant-card.featured { background: #e9efd9; }
+.story { background: #e5ecd8; }
+.contact-band { max-width: none; }
+.footer { max-width: none; }
+@media (max-width: 700px) {
+  body { background: var(--cream); }
+  .site-shell { box-shadow: none; width: 100%; }
+  .topbar { height: 70px; }
+  .brand-lockup img { height: 47px; width: 135px; }
+  .hero, .hero-copy { min-height: 630px; }
+  .hero-copy { background: linear-gradient(180deg, rgba(246,242,231,.97) 0%, rgba(246,242,231,.88) 53%, rgba(246,242,231,.12) 100%); justify-content: flex-start; padding-top: 54px; }
+  .hero-art { height: 630px; }
+  .hero-scene-image { object-position: 62% center; }
+  .art-sticker { right: 17px; top: 20px; }
+  .scene-note, .art-caption { bottom: 15px; right: 15px; }
+  .art-caption { display: none; }
+}
