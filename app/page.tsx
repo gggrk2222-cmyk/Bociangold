@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ArrowRight,
   Check,
@@ -14,16 +14,16 @@ import {
 } from 'lucide-react';
 
 const weights = [
-  { weight: '0,5 kg', price: '8,00 zł', note: 'Poręczna porcja', description: 'Dobry format na pierwsze zamówienie lub do małej klatki.', rabbitPhoto: '/products/bocian_gold_cutout_18.png', rodentPhoto: '/products/bocian_gold_cutout_01.png' },
-  { weight: '1 kg', price: '12,99 zł', note: 'Najczęściej wybierane', description: 'Uniwersalna gramatura do codziennego podawania.', featured: true, rabbitPhoto: '/products/bocian_gold_cutout_17.png', rodentPhoto: '/products/bocian_gold_cutout_02.png' },
-  { weight: '1,5 kg', price: '18,50 zł', note: 'Dłuższy zapas', description: 'Wygodny zapas bez zajmowania dużej ilości miejsca.', rabbitPhoto: '/products/bocian_gold_cutout_16.png', rodentPhoto: '/products/bocian_gold_cutout_04.png' },
-  { weight: '2 kg', price: '23,90 zł', note: 'Dla kilku zwierząt', description: 'Praktyczna porcja do domu z więcej niż jednym pupilem.', rabbitPhoto: '/products/bocian_gold_cutout_15.png', rodentPhoto: '/products/bocian_gold_cutout_05.png' },
-  { weight: '2,5 kg', price: '29,50 zł', note: 'Wygodny zapas', description: 'Więcej siana pod ręką i mniej częstego uzupełniania.', rabbitPhoto: '/products/bocian_gold_cutout_14.png', rodentPhoto: '/products/bocian_gold_cutout_06.png' },
-  { weight: '3 kg', price: '34,90 zł', note: 'Duży zapas', description: 'Format dla opiekunów, którzy wolą zamawiać na dłużej.', rabbitPhoto: '/products/bocian_gold_cutout_13.png', rodentPhoto: '/products/bocian_gold_cutout_07.png' },
-  { weight: '3,5 kg', price: '39,90 zł', note: 'Na dłużej', description: 'Duża partia do regularnego karmienia i uzupełniania paśnika.', rabbitPhoto: '/products/bocian_gold_cutout_10.png', rodentPhoto: '/products/bocian_gold_cutout_08.png' },
-  { weight: '4 kg', price: '44,90 zł', note: 'Dla hodowli', description: 'Wydajny wariant przy większej liczbie małych roślinożerców.', rabbitPhoto: '/products/bocian_gold_cutout_12.png', rodentPhoto: '/products/bocian_gold_cutout_09.png' },
-  { weight: '4,5 kg', price: '49,90 zł', note: 'Duże opakowanie', description: 'Duża ilość siana do przechowywania w suchym miejscu.', rabbitPhoto: '/products/bocian_gold_cutout_10.png', rodentPhoto: '/products/bocian_gold_cutout_08.png' },
-  { weight: '5 kg', price: '54,90 zł', note: 'Najbardziej ekonomiczna', description: 'Największy wariant dla regularnych, większych zamówień.', rabbitPhoto: '/products/bocian_gold_cutout_11.png', rodentPhoto: '/products/bocian_gold_cutout_11.png' },
+  { weight: '0,5 kg', price: '8,00 zł', note: 'Poręczna porcja', description: 'Dobry format na pierwsze zamówienie lub do małej klatki.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_18.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_01.jpg' },
+  { weight: '1 kg', price: '12,99 zł', note: 'Najczęściej wybierane', description: 'Uniwersalna gramatura do codziennego podawania.', featured: true, rabbitPhoto: '/products/optimized/bocian_gold_cutout_17.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_02.jpg' },
+  { weight: '1,5 kg', price: '18,50 zł', note: 'Dłuższy zapas', description: 'Wygodny zapas bez zajmowania dużej ilości miejsca.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_16.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_04.jpg' },
+  { weight: '2 kg', price: '23,90 zł', note: 'Dla kilku zwierząt', description: 'Praktyczna porcja do domu z więcej niż jednym pupilem.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_15.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_05.jpg' },
+  { weight: '2,5 kg', price: '29,50 zł', note: 'Wygodny zapas', description: 'Więcej siana pod ręką i mniej częstego uzupełniania.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_14.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_06.jpg' },
+  { weight: '3 kg', price: '34,90 zł', note: 'Duży zapas', description: 'Format dla opiekunów, którzy wolą zamawiać na dłużej.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_13.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_07.jpg' },
+  { weight: '3,5 kg', price: '39,90 zł', note: 'Na dłużej', description: 'Duża partia do regularnego karmienia i uzupełniania paśnika.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_10.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_08.jpg' },
+  { weight: '4 kg', price: '44,90 zł', note: 'Dla hodowli', description: 'Wydajny wariant przy większej liczbie małych roślinożerców.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_12.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_09.jpg' },
+  { weight: '4,5 kg', price: '49,90 zł', note: 'Duże opakowanie', description: 'Duża ilość siana do przechowywania w suchym miejscu.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_10.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_08.jpg' },
+  { weight: '5 kg', price: '54,90 zł', note: 'Najbardziej ekonomiczna', description: 'Największy wariant dla regularnych, większych zamówień.', rabbitPhoto: '/products/optimized/bocian_gold_cutout_11.jpg', rodentPhoto: '/products/optimized/bocian_gold_cutout_11.jpg' },
 ];
 
 const categories = {
@@ -56,6 +56,15 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('rabbit');
   const [selectedWeight, setSelectedWeight] = useState('1 kg');
   const category = categories[selectedCategory];
+
+  useEffect(() => {
+    const nextCategoryPhotos = weights.map((variant) => selectedCategory === 'rabbit' ? variant.rodentPhoto : variant.rabbitPhoto);
+    nextCategoryPhotos.forEach((src) => {
+      const image = new window.Image();
+      image.decoding = 'async';
+      image.src = src;
+    });
+  }, [selectedCategory]);
 
   return (
     <main className="site-shell">
@@ -92,7 +101,7 @@ export default function Home() {
         <div className="selection-bar"><div><span>{category.label}</span><strong>{selectedWeight}</strong></div><a className="button button-primary" href={`mailto:bocian.gold@gmail.com?subject=Zapytanie%20o%20${encodeURIComponent(category.label)}%20${encodeURIComponent(selectedWeight)}`}>Zapytaj o {selectedWeight} <ArrowRight size={18} /></a></div>
       </section>
 
-      <section className="story section" id="o-sianie"><div className="story-image"><img src="/products/bocian_gold_cutout_17.png" alt="Prawdziwa paczka siana Bocian Gold 1 kg" /></div><div className="story-copy"><span className="section-kicker">Z kujawskich łąk</span><h2>Prosty skład.<br /><em>Dużo natury.</em></h2><p>Wybieramy to, co najważniejsze: suszone rośliny łąkowe, dobry zapach i wygodne opakowanie. Bez zbędnych dodatków — tak, aby siano mogło być codzienną podstawą diety małych roślinożerców.</p><p>Różna długość źdźbeł i odcień zieleni to naturalna cecha siana. Każda partia ma swój charakter, bo łąka nie jest fabryką.</p><div className="story-list"><span><Check size={15} /> Naturalnie zmienny kolor</span><span><Check size={15} /> Bez aromatów i barwników</span><span><Check size={15} /> Ręczne pakowanie</span></div></div></section>
+      <section className="story section" id="o-sianie"><div className="story-image"><img src="/products/optimized/bocian_gold_cutout_17.jpg" alt="Prawdziwa paczka siana Bocian Gold 1 kg" /></div><div className="story-copy"><span className="section-kicker">Z kujawskich łąk</span><h2>Prosty skład.<br /><em>Dużo natury.</em></h2><p>Wybieramy to, co najważniejsze: suszone rośliny łąkowe, dobry zapach i wygodne opakowanie. Bez zbędnych dodatków — tak, aby siano mogło być codzienną podstawą diety małych roślinożerców.</p><p>Różna długość źdźbeł i odcień zieleni to naturalna cecha siana. Każda partia ma swój charakter, bo łąka nie jest fabryką.</p><div className="story-list"><span><Check size={15} /> Naturalnie zmienny kolor</span><span><Check size={15} /> Bez aromatów i barwników</span><span><Check size={15} /> Ręczne pakowanie</span></div></div></section>
 
       <section className="process section"><div className="section-heading compact"><div><span className="section-kicker">Jak powstaje</span><h2>Od łąki do<br /><em>Twojego pupila.</em></h2></div><p>Mały, powtarzalny proces, w którym liczy się świeżość, porządek i uważność na każdy pakunek.</p></div><div className="process-grid"><div><span className="step-number">01</span><Wheat size={25} /><h3>Łąka</h3><p>Rośliny łąkowe z kujawskiego krajobrazu.</p></div><div><span className="step-number">02</span><Leaf size={25} /><h3>Suszenie</h3><p>Spokojne suszenie, aby zachować naturalny charakter siana.</p></div><div><span className="step-number">03</span><PackageCheck size={25} /><h3>Pakowanie</h3><p>Ręcznie pakujemy i przygotowujemy do wysyłki.</p></div></div></section>
 
