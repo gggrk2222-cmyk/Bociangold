@@ -14,16 +14,16 @@ import {
 } from 'lucide-react';
 
 const weights = [
-  { weight: '0,5 kg', price: '8,00 zł', note: 'Poręczna porcja' },
-  { weight: '1 kg', price: '12,99 zł', note: 'Najczęściej wybierane', featured: true },
-  { weight: '1,5 kg', price: '18,50 zł', note: 'Dłuższy zapas' },
-  { weight: '2 kg', price: '23,90 zł', note: 'Dla kilku zwierząt' },
-  { weight: '2,5 kg', price: '29,50 zł', note: 'Wygodny zapas' },
-  { weight: '3 kg', price: '34,90 zł', note: 'Duży zapas' },
-  { weight: '3,5 kg', price: '39,90 zł', note: 'Na dłużej' },
-  { weight: '4 kg', price: '44,90 zł', note: 'Dla hodowli' },
-  { weight: '4,5 kg', price: '49,90 zł', note: 'Duża rodzinna paczka' },
-  { weight: '5 kg', price: '54,90 zł', note: 'Najbardziej ekonomiczna' },
+  { weight: '0,5 kg', price: '8,00 zł', note: 'Poręczna porcja', description: 'Dobry format na pierwsze zamówienie lub do małej klatki.', rabbitPhoto: '/products/bocian_gold_cutout_18.png', rodentPhoto: '/products/bocian_gold_cutout_01.png' },
+  { weight: '1 kg', price: '12,99 zł', note: 'Najczęściej wybierane', description: 'Uniwersalna gramatura do codziennego podawania.', featured: true, rabbitPhoto: '/products/bocian_gold_cutout_17.png', rodentPhoto: '/products/bocian_gold_cutout_02.png' },
+  { weight: '1,5 kg', price: '18,50 zł', note: 'Dłuższy zapas', description: 'Wygodny zapas bez zajmowania dużej ilości miejsca.', rabbitPhoto: '/products/bocian_gold_cutout_16.png', rodentPhoto: '/products/bocian_gold_cutout_04.png' },
+  { weight: '2 kg', price: '23,90 zł', note: 'Dla kilku zwierząt', description: 'Praktyczna porcja do domu z więcej niż jednym pupilem.', rabbitPhoto: '/products/bocian_gold_cutout_15.png', rodentPhoto: '/products/bocian_gold_cutout_05.png' },
+  { weight: '2,5 kg', price: '29,50 zł', note: 'Wygodny zapas', description: 'Więcej siana pod ręką i mniej częstego uzupełniania.', rabbitPhoto: '/products/bocian_gold_cutout_14.png', rodentPhoto: '/products/bocian_gold_cutout_06.png' },
+  { weight: '3 kg', price: '34,90 zł', note: 'Duży zapas', description: 'Format dla opiekunów, którzy wolą zamawiać na dłużej.', rabbitPhoto: '/products/bocian_gold_cutout_13.png', rodentPhoto: '/products/bocian_gold_cutout_07.png' },
+  { weight: '3,5 kg', price: '39,90 zł', note: 'Na dłużej', description: 'Duża partia do regularnego karmienia i uzupełniania paśnika.', rabbitPhoto: '/products/bocian_gold_cutout_10.png', rodentPhoto: '/products/bocian_gold_cutout_08.png' },
+  { weight: '4 kg', price: '44,90 zł', note: 'Dla hodowli', description: 'Wydajny wariant przy większej liczbie małych roślinożerców.', rabbitPhoto: '/products/bocian_gold_cutout_12.png', rodentPhoto: '/products/bocian_gold_cutout_09.png' },
+  { weight: '4,5 kg', price: '49,90 zł', note: 'Duże opakowanie', description: 'Duża ilość siana do przechowywania w suchym miejscu.', rabbitPhoto: '/products/bocian_gold_cutout_10.png', rodentPhoto: '/products/bocian_gold_cutout_08.png' },
+  { weight: '5 kg', price: '54,90 zł', note: 'Najbardziej ekonomiczna', description: 'Największy wariant dla regularnych, większych zamówień.', rabbitPhoto: '/products/bocian_gold_cutout_11.png', rodentPhoto: '/products/bocian_gold_cutout_11.png' },
 ];
 
 const categories = {
@@ -53,7 +53,7 @@ const productGallery = [
   { src: '/products/bocian_gold_cutout_05.png', alt: 'Dwie paczki siana Bocian Gold 1 kg na jasnym tle', label: '1 kg · zestaw' },
   { src: '/products/bocian_gold_cutout_07.png', alt: 'Trzy paczki siana Bocian Gold 1 kg', label: '3 kg · większy zapas' },
   { src: '/products/bocian_gold_cutout_09.png', alt: 'Cztery paczki siana Bocian Gold 1 kg', label: '4 kg · dla hodowli' },
-  { src: '/products/bocian_gold_cutout_11.png', alt: 'Kilka paczek siana Bocian Gold 1 kg', label: '5 kg · zapas rodzinny' },
+  { src: '/products/bocian_gold_cutout_11.png', alt: 'Kilka paczek siana Bocian Gold 1 kg', label: '5 kg · duży zapas' },
   { src: '/products/bocian_gold_cutout_14.png', alt: 'Zestaw paczek siana Bocian Gold 1 kg i 0,5 kg', label: 'Zestaw · różne gramatury' },
 ];
 
@@ -110,7 +110,7 @@ export default function Home() {
           {(Object.entries(categories) as [CategoryKey, (typeof categories)[CategoryKey]][]).map(([key, item]) => <button key={key} className={`category-tab ${selectedCategory === key ? 'active' : ''}`} onClick={() => setSelectedCategory(key)} role="tab" aria-selected={selectedCategory === key}><span className="category-emoji">{key === 'rabbit' ? '🐇' : '🐹'}</span><span><strong>{item.label}</strong><small>{item.subline}</small></span><ArrowRight size={17} /></button>)}
         </div>
         <div className="category-summary"><div><span className="section-kicker">{category.kicker}</span><h3>{category.headline}</h3></div><p>{category.description}</p></div>
-        <div className="variant-grid">{weights.map((variant) => { const active = selectedWeight === variant.weight; return <button key={variant.weight} className={`variant-card ${active ? 'active' : ''} ${variant.featured ? 'featured' : ''}`} onClick={() => setSelectedWeight(variant.weight)} aria-pressed={active}>{variant.featured && <span className="variant-badge">Najczęściej wybierane</span>}<span className="variant-weight">{variant.weight}</span><span className="variant-price">{variant.price}</span><span className="variant-note">{variant.note}</span><span className="variant-check">{active ? <Check size={15} /> : <CircleDot size={15} />}</span></button>; })}</div>
+        <div className="variant-grid">{weights.map((variant) => { const active = selectedWeight === variant.weight; const productPhoto = selectedCategory === 'rabbit' ? variant.rabbitPhoto : variant.rodentPhoto; return <button key={variant.weight} className={`variant-card ${active ? 'active' : ''} ${variant.featured ? 'featured' : ''}`} onClick={() => setSelectedWeight(variant.weight)} aria-pressed={active} aria-label={`Wybierz ${category.label}, ${variant.weight}`}><span className="variant-photo"><img src={productPhoto} alt={`${category.label} ${variant.weight}`} loading="lazy" /></span><span className="variant-content">{variant.featured && <span className="variant-badge">Najczęściej wybierane</span>}<span className="variant-weight">{variant.weight}</span><span className="variant-price">{variant.price}</span><span className="variant-note">{variant.note}</span><span className="variant-description">{variant.description}</span><span className="variant-check">{active ? <Check size={15} /> : <CircleDot size={15} />}</span></span></button>; })}</div>
         <div className="selection-bar"><div><span>{category.label}</span><strong>{selectedWeight}</strong></div><a className="button button-primary" href={`mailto:bocian.gold@gmail.com?subject=Zapytanie%20o%20${encodeURIComponent(category.label)}%20${encodeURIComponent(selectedWeight)}`}>Zapytaj o {selectedWeight} <ArrowRight size={18} /></a></div>
       </section>
 
