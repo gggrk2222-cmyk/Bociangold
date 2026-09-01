@@ -105,7 +105,7 @@ export default function Home() {
       </section>
 
       <section className="section variants-section" id="warianty">
-        <div className="section-heading"><div><span className="section-kicker">Znajdź swój format</span><h2>Wybierz linię,<br /><em>potem gramaturę.</em></h2></div><p>Dwie czytelne linie produktów i pełna skala opakowań — od 0,5 kg do 5 kg, zawsze co 0,5 kg.</p></div>
+        <div className="section-heading"><div><span className="section-kicker">Wybierz linię i format</span><h2>Wybierz linię,<br /><em>potem gramaturę.</em></h2></div><p>Dwie czytelne linie produktów i pełna skala opakowań — od 0,5 kg do 5 kg, zawsze co 0,5 kg.</p></div>
         <div className="category-switcher" role="tablist" aria-label="Wybierz kategorię siana">
           {(Object.entries(categories) as [CategoryKey, (typeof categories)[CategoryKey]][]).map(([key, item]) => <button key={key} className={`category-tab ${selectedCategory === key ? 'active' : ''}`} onClick={() => setSelectedCategory(key)} role="tab" aria-selected={selectedCategory === key}><span className="category-emoji">{key === 'rabbit' ? '🐇' : '🐹'}</span><span><strong>{item.label}</strong><small>{item.subline}</small></span><ArrowRight size={17} /></button>)}
         </div>
