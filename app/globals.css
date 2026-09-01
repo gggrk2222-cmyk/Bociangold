@@ -91,7 +91,6 @@ h2 em { color: var(--gold); font-style: normal; }
 .variant-card.featured .variant-weight { margin-top: 15px; }
 .variant-price { color: var(--gold); font-size: 16px; font-weight: 800; margin-top: 17px; }
 .variant-note { color: var(--muted); font-size: 11px; margin-top: 6px; }
-.variant-description { color: var(--muted); font-size: 11px; line-height: 1.45; margin-top: 9px; }
 .variant-check { color: var(--gold); margin-left: auto; margin-top: 14px; }
 .selection-bar { align-items: center; background: var(--green); border-radius: 16px; color: var(--paper); display: flex; justify-content: space-between; margin-top: 26px; padding: 15px 17px 15px 24px; }
 .selection-bar span, .selection-bar strong { display: block; }
@@ -158,7 +157,7 @@ h2 em { color: var(--gold); font-style: normal; }
 .footer-meta { display: flex; gap: 25px; }
 .footer-meta a { color: var(--green); font-weight: 700; }
 @media (max-width: 900px) { .hero { gap: 45px; grid-template-columns: 1fr; padding-bottom: 75px; padding-top: 76px; } .hero-copy { max-width: 650px; } .hero-art { max-width: 360px; } .variant-grid { grid-template-columns: repeat(3, 1fr); } .story { gap: 50px; } .photo-card-1 { grid-column: span 6; } .photo-card-2, .photo-card-3, .photo-card-4, .photo-card-5, .photo-card-6, .photo-card-7, .photo-card-8, .photo-card-9 { grid-column: span 3; } }
-@media (max-width: 700px) { .topbar { height: 70px; padding: 0 18px; } .brand-lockup img { height: 46px; width: 130px; } .nav-links { display: none; } .nav-cta { font-size: 12px; } h1 { font-size: clamp(46px, 14vw, 70px); } .hero { min-height: auto; padding-left: 21px; padding-right: 21px; } .hero-art { margin-top: 13px; width: min(100%, 340px); } .benefits { grid-template-columns: 1fr; padding: 9px 21px; } .benefits > div, .benefits > div:first-child, .benefits > div:last-child { border-bottom: 1px solid rgba(255,255,255,.15); border-right: 0; padding: 13px 0; } .benefits > div:last-child { border-bottom: 0; } .section { padding-left: 21px; padding-right: 21px; } .section-heading, .section-heading.compact { align-items: start; flex-direction: column; gap: 22px; } .section-heading { margin-bottom: 31px; } .category-switcher { grid-template-columns: 1fr; } .category-tab strong { font-size: 18px; } .category-summary { align-items: start; flex-direction: column; gap: 13px; margin-bottom: 22px; } .variant-grid { grid-template-columns: repeat(2, 1fr); } .variant-card { min-height: 276px; padding: 0; } .variant-card.active { padding: 0; } .variant-photo { height: 126px; padding: 8px 10px 0; } .variant-content { padding: 12px 13px 13px; } .variant-badge { font-size: 8px; left: 13px; top: 7px; } .variant-card.featured .variant-weight { margin-top: 14px; } .variant-weight { font-size: 24px; } .variant-price { font-size: 14px; margin-top: 12px; } .variant-note, .variant-description { font-size: 10px; } .selection-bar { align-items: stretch; flex-direction: column; gap: 17px; } .selection-bar .button { width: 100%; } .photo-grid { gap: 12px; grid-template-columns: repeat(2, 1fr); } .photo-card-1, .photo-card-2, .photo-card-3, .photo-card-4, .photo-card-5, .photo-card-6, .photo-card-7, .photo-card-8, .photo-card-9 { grid-column: span 1; grid-row: auto; } .photo-card-1 { grid-column: span 2; } .photo-frame, .photo-card-1 .photo-frame { min-height: 225px; padding: 10px; } .photo-card-1 .photo-frame { min-height: 370px; } .photo-frame img, .photo-card-1 .photo-frame img { max-height: 350px; } .photo-card figcaption { font-size: 9px; } .story, .faq { display: flex; flex-direction: column; } .story-image { max-width: 310px; min-height: 310px; } .story-copy { max-width: none; } .process-grid { grid-template-columns: 1fr; } .process-grid > div, .process-grid > div + div { border-bottom: 1px solid var(--line); border-right: 0; min-height: 0; padding: 24px 0; } .process-grid > div:last-child { border-bottom: 0; } .step-number { margin-bottom: 21px; } .contact-band { align-items: start; flex-direction: column; padding-bottom: 56px; padding-top: 56px; } .contact-band .button-light { width: 100%; } .footer { align-items: start; flex-direction: column; padding-bottom: 35px; padding-top: 35px; } .footer-brand { align-items: start; flex-direction: column; gap: 9px; } }
+@media (max-width: 700px) { .topbar { height: 70px; padding: 0 18px; } .brand-lockup img { height: 46px; width: 130px; } .nav-links { display: none; } .nav-cta { font-size: 12px; } h1 { font-size: clamp(46px, 14vw, 70px); } .hero { min-height: auto; padding-left: 21px; padding-right: 21px; } .hero-art { margin-top: 13px; width: min(100%, 340px); } .benefits { grid-template-columns: 1fr; padding: 9px 21px; } .benefits > div, .benefits > div:first-child, .benefits > div:last-child { border-bottom: 1px solid rgba(255,255,255,.15); border-right: 0; padding: 13px 0; } .benefits > div:last-child { border-bottom: 0; } .section { padding-left: 21px; padding-right: 21px; } .section-heading, .section-heading.compact { align-items: start; flex-direction: column; gap: 22px; } .section-heading { margin-bottom: 31px; } .category-switcher { grid-template-columns: 1fr; } .category-tab strong { font-size: 18px; } .category-summary { align-items: start; flex-direction: column; gap: 13px; margin-bottom: 22px; } .variant-grid { grid-template-columns: repeat(2, 1fr); } .variant-card { min-height: 276px; padding: 0; } .variant-card.active { padding: 0; } .variant-photo { height: 126px; padding: 8px 10px 0; } .variant-content { padding: 12px 13px 13px; } .variant-badge { font-size: 8px; left: 13px; top: 7px; } .variant-card.featured .variant-weight { margin-top: 14px; } .variant-weight { font-size: 24px; } .variant-price { font-size: 14px; margin-top: 12px; } .variant-note { font-size: 10px; } .selection-bar { align-items: stretch; flex-direction: column; gap: 17px; } .selection-bar .button { width: 100%; } .photo-grid { gap: 12px; grid-template-columns: repeat(2, 1fr); } .photo-card-1, .photo-card-2, .photo-card-3, .photo-card-4, .photo-card-5, .photo-card-6, .photo-card-7, .photo-card-8, .photo-card-9 { grid-column: span 1; grid-row: auto; } .photo-card-1 { grid-column: span 2; } .photo-frame, .photo-card-1 .photo-frame { min-height: 225px; padding: 10px; } .photo-card-1 .photo-frame { min-height: 370px; } .photo-frame img, .photo-card-1 .photo-frame img { max-height: 350px; } .photo-card figcaption { font-size: 9px; } .story, .faq { display: flex; flex-direction: column; } .story-image { max-width: 310px; min-height: 310px; } .story-copy { max-width: none; } .process-grid { grid-template-columns: 1fr; } .process-grid > div, .process-grid > div + div { border-bottom: 1px solid var(--line); border-right: 0; min-height: 0; padding: 24px 0; } .process-grid > div:last-child { border-bottom: 0; } .step-number { margin-bottom: 21px; } .contact-band { align-items: start; flex-direction: column; padding-bottom: 56px; padding-top: 56px; } .contact-band .button-light { width: 100%; } .footer { align-items: start; flex-direction: column; padding-bottom: 35px; padding-top: 35px; } .footer-brand { align-items: start; flex-direction: column; gap: 9px; } }
 
 /* Krajeński, wiejski kierunek wizualny: jasna karta strony na oliwkowym tle,
    fotografia łąki jako pełny hero i prostsza typografia inspirowana wzorem. */
@@ -191,6 +190,7 @@ body { background: #8f9558; }
 .benefits small { color: var(--muted); }
 .benefit-icon { background: var(--sky); }
 .section { max-width: none; }
+.variants-label { background: #fff; border: 1px solid rgba(41,61,43,.12); box-shadow: 0 10px 24px rgba(41,61,43,.12); display: block; max-height: 170px; object-fit: contain; width: 170px; }
 .variants-section { background: #f1eee2; }
 .category-tab, .variant-card { border-radius: 7px; }
 .category-tab.active, .variant-card.featured { background: #e9efd9; }
@@ -209,4 +209,25 @@ body { background: #8f9558; }
   .art-sticker { right: 17px; top: 20px; }
   .scene-note, .art-caption { bottom: 15px; right: 15px; }
   .art-caption { display: none; }
+}
+
+/* Czytelniejsze oznaczenia i logo bez białej, wklejonej planszy. */
+.brand-lockup img { height: 142px; max-width: 218px; object-fit: contain; width: auto; }
+.topbar { height: 148px; }
+.benefits strong { font-size: 17px; }
+.benefits small { font-size: 12px; }
+.art-sticker { font-size: 12px; padding: 11px 15px; }
+.scene-note { font-size: 13px; padding: 10px 13px; }
+.art-caption span:last-child { font-size: 13px; font-weight: 800; }
+.footer { background: #e5ecd8; }
+.footer-brand img { height: auto; max-width: 250px; width: 250px; }
+.footer-brand span { font-size: 12px; }
+@media (max-width: 700px) {
+  .topbar { height: 104px; }
+  .brand-lockup img { height: 96px; max-width: 148px; width: auto; }
+  .benefits strong { font-size: 16px; }
+  .benefits small { font-size: 11px; }
+  .scene-note { font-size: 11px; padding: 9px 11px; }
+  .variants-label { align-self: flex-start; max-height: 130px; width: 130px; }
+  .footer-brand img { max-width: 210px; width: 210px; }
 }
