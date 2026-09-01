@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       <section className="section variants-section" id="warianty">
-        <div className="section-heading"><div><span className="section-kicker">Wybierz linię i format</span><h2>Wybierz linię,<br /><em>a potem gramaturę.</em></h2></div><img className="variants-label" src="etykieta-tylna-krajna.png" alt="Tył etykiety Bocian Gold – Złota Łąka" /></div>
+        <div className="section-heading"><div><span className="section-kicker">Wybierz linię i format</span><h2>Wybierz linię,<br /><em>a potem gramaturę.</em></h2></div><img className="variants-label" src="etykieta-tylna.png" alt="Tył etykiety Bocian Gold – Złota Łąka" /></div>
         <div className="category-switcher" role="tablist" aria-label="Wybierz kategorię siana">
           {(Object.entries(categories) as [CategoryKey, (typeof categories)[CategoryKey]][]).map(([key, item]) => <button key={key} className={`category-tab ${selectedCategory === key ? 'active' : ''}`} onClick={() => setSelectedCategory(key)} role="tab" aria-selected={selectedCategory === key}><span className="category-emoji">{key === 'rabbit' ? '🐇' : '🐹'}</span><span><strong>{item.label}</strong><small>{item.subline}</small></span><ArrowRight size={17} /></button>)}
         </div>
