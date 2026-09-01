@@ -13,17 +13,37 @@ import {
   Wheat,
 } from 'lucide-react';
 
-const variants = [
-  { weight: '300 g', price: '4,50 zł', note: 'Na próbę' },
-  { weight: '500 g', price: '8,00 zł', note: 'Poręczna porcja' },
-  { weight: '800 g', price: '10,90 zł', note: 'Dla małego pupila' },
+const weights = [
+  { weight: '0,5 kg', price: '8,00 zł', note: 'Poręczna porcja' },
   { weight: '1 kg', price: '12,99 zł', note: 'Najczęściej wybierane', featured: true },
   { weight: '1,5 kg', price: '18,50 zł', note: 'Dłuższy zapas' },
   { weight: '2 kg', price: '23,90 zł', note: 'Dla kilku zwierząt' },
+  { weight: '2,5 kg', price: '29,50 zł', note: 'Wygodny zapas' },
   { weight: '3 kg', price: '34,90 zł', note: 'Duży zapas' },
+  { weight: '3,5 kg', price: '39,90 zł', note: 'Na dłużej' },
   { weight: '4 kg', price: '44,90 zł', note: 'Dla hodowli' },
+  { weight: '4,5 kg', price: '49,90 zł', note: 'Duża rodzinna paczka' },
   { weight: '5 kg', price: '54,90 zł', note: 'Najbardziej ekonomiczna' },
 ];
+
+const categories = {
+  rabbit: {
+    label: 'Siano dla królików',
+    subline: 'Dla królików domowych i hodowlanych',
+    kicker: 'Linia królicza',
+    headline: 'Codzienna porcja dla uszatych.',
+    description: 'Wybierz dokładnie taką ilość, jakiej potrzebuje Twój królik — od poręcznego pół kilograma po pięciokilogramowy zapas.',
+  },
+  rodent: {
+    label: 'Siano dla gryzoni',
+    subline: 'Dla świnek morskich, szynszyli i koszatniczek',
+    kicker: 'Linia dla gryzoni',
+    headline: 'Łąkowa uczta dla małych łapek.',
+    description: 'Ta sama naturalna baza w gramaturach dopasowanych do jednego pupila, kilku zwierząt albo domowej hodowli.',
+  },
+} as const;
+
+type CategoryKey = keyof typeof categories;
 
 const productGallery = [
   { src: '/products/bocian_gold_cutout_17.png', alt: 'Siano Bocian Gold 1 kg z etykietą z królikiem', label: '1 kg · królik' },
@@ -45,7 +65,9 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('rabbit');
   const [selectedWeight, setSelectedWeight] = useState('1 kg');
+  const category = categories[selectedCategory];
 
   return (
     <main className="site-shell">
@@ -83,9 +105,13 @@ export default function Home() {
       </section>
 
       <section className="section variants-section" id="warianty">
-        <div className="section-heading"><div><span className="section-kicker">Znajdź swój format</span><h2>Wybierz ilość na dziś<br /><em>i na cały zapas.</em></h2></div><p>Od małej porcji na próbę po większe opakowania dla kilku zwierząt. Kliknij wariant, aby go wybrać.</p></div>
-        <div className="variant-grid">{variants.map((variant) => { const active = selectedWeight === variant.weight; return <button key={variant.weight} className={`variant-card ${active ? 'active' : ''} ${variant.featured ? 'featured' : ''}`} onClick={() => setSelectedWeight(variant.weight)} aria-pressed={active}>{variant.featured && <span className="variant-badge">Najczęściej wybierane</span>}<span className="variant-weight">{variant.weight}</span><span className="variant-price">{variant.price}</span><span className="variant-note">{variant.note}</span><span className="variant-check">{active ? <Check size={15} /> : <CircleDot size={15} />}</span></button>; })}</div>
-        <div className="selection-bar"><div><span>Wybrany wariant</span><strong>{selectedWeight}</strong></div><a className="button button-primary" href={`mailto:bocian.gold@gmail.com?subject=Zapytanie%20o%20siano%20${encodeURIComponent(selectedWeight)}`}>Zapytaj o {selectedWeight} <ArrowRight size={18} /></a></div>
+        <div className="section-heading"><div><span className="section-kicker">Znajdź swój format</span><h2>Wybierz linię,<br /><em>potem gramaturę.</em></h2></div><p>Dwie czytelne linie produktów i pełna skala opakowań — od 0,5 kg do 5 kg, zawsze co 0,5 kg.</p></div>
+        <div className="category-switcher" role="tablist" aria-label="Wybierz kategorię siana">
+          {(Object.entries(categories) as [CategoryKey, (typeof categories)[CategoryKey]][]).map(([key, item]) => <button key={key} className={`category-tab ${selectedCategory === key ? 'active' : ''}`} onClick={() => setSelectedCategory(key)} role="tab" aria-selected={selectedCategory === key}><span className="category-emoji">{key === 'rabbit' ? '🐇' : '🐹'}</span><span><strong>{item.label}</strong><small>{item.subline}</small></span><ArrowRight size={17} /></button>)}
+        </div>
+        <div className="category-summary"><div><span className="section-kicker">{category.kicker}</span><h3>{category.headline}</h3></div><p>{category.description}</p></div>
+        <div className="variant-grid">{weights.map((variant) => { const active = selectedWeight === variant.weight; return <button key={variant.weight} className={`variant-card ${active ? 'active' : ''} ${variant.featured ? 'featured' : ''}`} onClick={() => setSelectedWeight(variant.weight)} aria-pressed={active}>{variant.featured && <span className="variant-badge">Najczęściej wybierane</span>}<span className="variant-weight">{variant.weight}</span><span className="variant-price">{variant.price}</span><span className="variant-note">{variant.note}</span><span className="variant-check">{active ? <Check size={15} /> : <CircleDot size={15} />}</span></button>; })}</div>
+        <div className="selection-bar"><div><span>{category.label}</span><strong>{selectedWeight}</strong></div><a className="button button-primary" href={`mailto:bocian.gold@gmail.com?subject=Zapytanie%20o%20${encodeURIComponent(category.label)}%20${encodeURIComponent(selectedWeight)}`}>Zapytaj o {selectedWeight} <ArrowRight size={18} /></a></div>
       </section>
 
       <section className="story section" id="o-sianie"><div className="story-image"><img src="/products/bocian_gold_cutout_17.png" alt="Prawdziwa paczka siana Bocian Gold 1 kg" /></div><div className="story-copy"><span className="section-kicker">Z kujawskich łąk</span><h2>Prosty skład.<br /><em>Dużo natury.</em></h2><p>Wybieramy to, co najważniejsze: suszone rośliny łąkowe, dobry zapach i wygodne opakowanie. Bez zbędnych dodatków — tak, aby siano mogło być codzienną podstawą diety małych roślinożerców.</p><p>Różna długość źdźbeł i odcień zieleni to naturalna cecha siana. Każda partia ma swój charakter, bo łąka nie jest fabryką.</p><div className="story-list"><span><Check size={15} /> Naturalnie zmienny kolor</span><span><Check size={15} /> Bez aromatów i barwników</span><span><Check size={15} /> Ręczne pakowanie</span></div></div></section>
