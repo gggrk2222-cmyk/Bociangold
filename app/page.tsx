@@ -45,18 +45,6 @@ const categories = {
 
 type CategoryKey = keyof typeof categories;
 
-const productGallery = [
-  { src: '/products/bocian_gold_cutout_17.png', alt: 'Siano Bocian Gold 1 kg z etykietą z królikiem', label: '1 kg · królik' },
-  { src: '/products/bocian_gold_cutout_01.png', alt: 'Siano Bocian Gold 0,5 kg z etykietą dla małych roślinożerców', label: '0,5 kg · świnka morska i szynszyla' },
-  { src: '/products/bocian_gold_cutout_18.png', alt: 'Pojedyncza paczka siana Bocian Gold 0,5 kg', label: '0,5 kg · ujęcie produktowe' },
-  { src: '/products/bocian_gold_cutout_02.png', alt: 'Dwie paczki siana Bocian Gold 1 kg', label: '1 kg · duet paczek' },
-  { src: '/products/bocian_gold_cutout_05.png', alt: 'Dwie paczki siana Bocian Gold 1 kg na jasnym tle', label: '1 kg · zestaw' },
-  { src: '/products/bocian_gold_cutout_07.png', alt: 'Trzy paczki siana Bocian Gold 1 kg', label: '3 kg · większy zapas' },
-  { src: '/products/bocian_gold_cutout_09.png', alt: 'Cztery paczki siana Bocian Gold 1 kg', label: '4 kg · dla hodowli' },
-  { src: '/products/bocian_gold_cutout_11.png', alt: 'Kilka paczek siana Bocian Gold 1 kg', label: '5 kg · duży zapas' },
-  { src: '/products/bocian_gold_cutout_14.png', alt: 'Zestaw paczek siana Bocian Gold 1 kg i 0,5 kg', label: 'Zestaw · różne gramatury' },
-];
-
 const faqs = [
   { question: 'Dla jakich zwierząt jest to siano?', answer: 'Siano łąkowe możesz podawać królikom, świnkom morskim, szynszylom, koszatniczkom i innym małym roślinożercom. Powinno być dostępne jako pasza objętościowa każdego dnia.' },
   { question: 'Czy siano ma dodatki?', answer: 'Nie. To suszone rośliny łąkowe bez dodatków paszowych, barwników, aromatów i konserwantów. Naturalnie mogą różnić się kolorem oraz długością źdźbeł.' },
@@ -73,7 +61,7 @@ export default function Home() {
     <main className="site-shell">
       <nav className="topbar" aria-label="Główna nawigacja">
         <a href="#start" className="brand-lockup" aria-label="Bocian Gold – Złota Łąka"><img src="/logo-bocian-gold.png" alt="Bocian Gold – Złota Łąka" /></a>
-        <div className="nav-links"><a href="#warianty">Warianty</a><a href="#zdjecia">Zdjęcia</a><a href="#o-sianie">O sianie</a><a href="#faq">FAQ</a></div>
+        <div className="nav-links"><a href="#warianty">Warianty</a><a href="#o-sianie">O sianie</a><a href="#faq">FAQ</a></div>
         <a className="nav-cta" href="mailto:bocian.gold@gmail.com?subject=Zapytanie%20o%20siano">Napisz do nas <ArrowRight size={16} /></a>
       </nav>
 
@@ -92,16 +80,6 @@ export default function Home() {
         <div><span className="benefit-icon"><Leaf size={20} /></span><div><strong>100% roślin łąkowych</strong><small>Bez dodatków paszowych</small></div></div>
         <div><span className="benefit-icon"><Wheat size={20} /></span><div><strong>Suszone z uważnością</strong><small>Naturalny kolor i zapach siana</small></div></div>
         <div><span className="benefit-icon"><PackageCheck size={20} /></span><div><strong>Pakowane ręcznie</strong><small>Każde opakowanie przechodzi przez nasze ręce</small></div></div>
-      </section>
-
-      <section className="photo-gallery section" id="zdjecia">
-        <div className="section-heading">
-          <div><span className="section-kicker">Zobacz nasze paczki</span><h2>Rzeczywiste ujęcia<br /><em>Bocian Gold.</em></h2></div>
-          <p>Zdjęcia pokazują prawdziwe opakowania i różne zestawienia gramatur. Każde ujęcie powstało przy pakowaniu naszych paczek.</p>
-        </div>
-        <div className="photo-grid">
-          {productGallery.map((photo, index) => <figure className={`photo-card photo-card-${index + 1}`} key={photo.src}><div className="photo-frame"><img src={photo.src} alt={photo.alt} loading={index > 1 ? 'lazy' : 'eager'} /></div><figcaption>{photo.label}</figcaption></figure>)}
-        </div>
       </section>
 
       <section className="section variants-section" id="warianty">
