@@ -44,8 +44,13 @@ export default defineConfig(async () => {
   // Wrangler snapshots its log path while the Cloudflare plugin is imported.
   const { cloudflare } = await import('@cloudflare/vite-plugin');
 
+  // The custom domain serves the static export from the domain root. Keep the
+  // base configurable so a future project-page deployment can still opt into
+  // `/Bociangold/` without changing the source code.
+  const githubPagesBase = process.env.GITHUB_PAGES_BASE ?? '/';
+
   return {
-    base: process.env.GITHUB_ACTIONS === 'true' ? '/Bociangold/' : '/',
+    base: process.env.GITHUB_ACTIONS === 'true' ? githubPagesBase : '/',
     css: { postcss: { plugins: [tailwindcss()] } },
     server: isCodexSeatbeltSandbox
       ? { watch: { useFsEvents: false, usePolling: true } }

@@ -16,6 +16,9 @@ concurrency:
 
 jobs:
   deploy:
+    # The configured custom domain (bociangold.pl) serves files from `/`.
+    env:
+      GITHUB_PAGES_BASE: /
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
